@@ -39,7 +39,19 @@ module.exports = {
       exposes: {
         './App': './src/components/Page'
       },
-      shared: ['react', 'react-dom']
+      shared: [
+        {
+          react: {
+            singleton: true
+          },
+          "react-dom": {
+            singleton: true
+          },
+          "styled-components": {
+            singleton: true
+          }
+        }
+      ]
     }),
   ]
 };

@@ -52,6 +52,12 @@ module.exports = {
           "react-dom": {
             singleton: true
           },
+          "styled-components": {
+            singleton: true
+          },
+          "react-router-dom": {
+            singleton: true
+          }
         }
       ]
     }),
