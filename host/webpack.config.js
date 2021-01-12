@@ -40,6 +40,9 @@ module.exports = {
       remotes: {
         page1: 'page1'
       },
+      exposes: {
+        './MainPage': './src/components/MainPage'
+      },
       shared: ['react', 'react-dom']
     }),
     new HtmlWebpackPlugin({

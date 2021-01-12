@@ -4,5 +4,13 @@
   "description": "",
   "private": true,
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "start": "concurrently npm:start-*",
+    "start-host": "npm start --prefix host",
+    "start-page1": "npm start --prefix page1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
 }

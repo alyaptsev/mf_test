@@ -1,24 +1,25 @@
 import React from "react";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import MainPage from "./MainPage"
+import asyncComponent from "./AsyncComponent";
+import MainPage from "./MainPage";
 
-const Nav = styled.nav`
-  border-bottom: 2px solid black;
-  display: flex;
-  align-items: center;
-`;
+// const Nav = styled.nav`
+//   border-bottom: 2px solid black;
+//   display: flex;
+//   align-items: center;
+// `;
 
 const Content = styled.div`
   margin-top: 15px;
 `;
 
-const StyledLink = styled(Link)`
-  padding: 10px;
-  margin-right: 10px;
-`;
+// const StyledLink = styled(Link)`
+//   padding: 10px;
+//   margin-right: 10px;
+// `;
 
-const Page1 = React.lazy(() => import('page1/App'));
+const Page1 = asyncComponent(React.lazy(() => import('page1/App')));
 
 const App = () => {
   // const [clicks, setClicks] = React.useState(0);
@@ -29,11 +30,11 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Nav>
-        <StyledLink to="/" onClick={onLinkClick}>Main</StyledLink>
-        <StyledLink to="/page1" onClick={onLinkClick}>Page1</StyledLink>
+      <nav>
+        <Link to="/" onClick={onLinkClick}>Main</Link>
+        <Link to="/page1" onClick={onLinkClick}>Page1</Link>
         {/* <span>Current clicks: {clicks}</span> */}
-      </Nav>
+      </nav>
 
       <Content>
         <Switch>
