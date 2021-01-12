@@ -5,7 +5,7 @@ module.exports = {
   cache: false,
 
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
 
   optimization: {
     minimize: false

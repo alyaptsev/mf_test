@@ -6,14 +6,15 @@ module.exports = {
   cache: false,
 
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
 
   optimization: {
     minimize: false
   },
 
   output: {
-    publicPath: 'http://localhost:8080/'
+    publicPath: 'http://localhost:8080/',
+    crossOriginLoading: 'anonymous'
   },
 
   resolve: {
@@ -43,7 +44,16 @@ module.exports = {
       exposes: {
         './MainPage': './src/components/MainPage'
       },
-      shared: ['react', 'react-dom']
+      shared: [
+        {
+          react: {
+            singleton: true
+          },
+          "react-dom": {
+            singleton: true
+          },
+        }
+      ]
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
