@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Provider } from "react-redux";
+import { Button } from "@elamajs/ui-kit";
 import store from "../store/store";
 import StoreCounter from "./StoreCounter";
 
@@ -16,8 +17,8 @@ const Page = () => {
       <StyledContent>
         Page content
         <div>
-          Clicks: {clicks}
-          <button onClick={() => setClicks(prevClicks => prevClicks + 1)}>+</button>
+          Clicks: { clicks} 
+          <Button onClick={ () => setClicks(prevClicks => prevClicks + 1) }>+</Button>
         </div>
         <StoreCounter />
       </StyledContent>

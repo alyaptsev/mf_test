@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { theme } from "@elamajs/ui-kit";
 import asyncComponent from "./AsyncComponent";
 import MainPage from "./MainPage";
-import ErrorBoundary from "./ErrorBoundary";
 
 const Nav = styled.nav`
   border-bottom: 2px solid black;
@@ -32,17 +32,19 @@ const App = () => {
   return (
     <BrowserRouter>
       <Nav>
-        <StyledLink to="/" onClick={onLinkClick}>Main</StyledLink>
-        <StyledLink to="/page1" onClick={onLinkClick}>Page1</StyledLink>
-        <span>Current clicks: {clicks}</span>
+        <StyledLink to="/" onClick={ onLinkClick }>Main</StyledLink>
+        <StyledLink to="/page1" onClick={ onLinkClick }>Page1</StyledLink>
+        <span>Current clicks: { clicks }</span>
       </Nav>
 
-      <Content>
-        <Switch>
-          <Route path="/page1" component={Page1} />
-          <Route path="/" component={MainPage} />
-        </Switch>
-      </Content>
+      <ThemeProvider theme={ theme }>
+        <Content>
+          <Switch>
+            <Route path="/page1" component={ Page1 } />
+            <Route path="/" component={ MainPage } />
+          </Switch>
+        </Content>
+      </ThemeProvider>
     </BrowserRouter>
   )
 }
